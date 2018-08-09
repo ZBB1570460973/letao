@@ -119,7 +119,7 @@
     <!-- // 动态渲染数据 -->
     {{ each rows v i }}
     <tr>
-      <td>{{ i }}</td>
+      <td>{{ i + 1 + (page - 1) * size }}</td>
       <td> {{ v.username }} </td>
       <td> {{ v.mobile }} </td>
       <td>

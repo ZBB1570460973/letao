@@ -140,4 +140,8 @@ a:active {
   text-align: center;
   vertical-align: middle;
 }
+/* 添加分类的样式 */
+.mg-b {
+  margin-bottom: 20px;
+}
 
