@@ -107,6 +107,7 @@ body {
   padding-left: 180px;
   background: #3C8DBC;
   transition: all 1s;
+  z-index: 666;
 }
 .lt-main .topbar.hiddenMenu {
   padding-left: 0px;
@@ -126,4 +127,10 @@ body {
 }
 .modal-dialog .modal-body p {
   color: #A94442;
+}
+/* 图表样式 */
+.pic-left,
+.pic-right {
+  width: 48%;
+  height: 400px;
 }

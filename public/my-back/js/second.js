@@ -61,7 +61,6 @@ $(function () {
     var id = $(this).data('id');
     // 把获取到的id设置给input
     $('[name="categoryId"]').val(id);
-    // 设置文本框的校验
     $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
   })
   //4. 获取图片,,文本初始化
@@ -76,7 +75,7 @@ $(function () {
       $('#imgBox img').attr('src', imgUrl);
       // 赋值给input
       $('[ name="brandLogo"]').val(imgUrl);
-      // 图片的校验
+
       $('#form').data("bootstrapValidator").updateStatus("brandName", "VALID");
     }
 });
