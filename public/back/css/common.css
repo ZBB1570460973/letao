@@ -134,3 +134,14 @@ body {
   width: 48%;
   height: 400px;
 }
+/* 表格的样式 */
+/* 交集选择器 */
+.table.table-bordered th,
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
+}
+/* 添加分类样式 */
+.add-cate {
+  margin-bottom: 10px;
+}

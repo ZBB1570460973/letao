@@ -49,9 +49,22 @@
       <!-- 面包屑导航  路径导航 -->
       <ol class="breadcrumb">
         <li><a href="#">管理系统</a></li>
-        <li class="active">用户管理</li>
+        <li class="active">分类管理</li>
+        <li class="active">一级分类</li>
       </ol>  
-      
+      <!-- 表格动态渲染 -->
+      <button class="btn btn-default add-cate">添加分类</button>
+      <table class="table table-bordered">
+        <thead>				
+          <tr>
+            <th width="20%">序号</th>
+            <th width="80%">一级分类名</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table> 
     </div>
   </div>
 
@@ -74,11 +87,23 @@
       </div>
     </div>
 
+   <!-- 表格的渲染 -->
+   <script type="text/html" id="tableTmp">
+    {{ each rows v i }}
+    <tr>  			
+      <td> {{ i + 1 + (page -1 ) * size }} </td>
+      <td></td>
+    </tr>
+    {{ /each }}
+  </script>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="lib/echarts/echarts.min.js"></script>
+  <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="lib/artTemplate/template-web.js"></script>
+  <script src="js/first.js"></script>
   <script src="./js/common.js"></script>
 </body>
 </html>
