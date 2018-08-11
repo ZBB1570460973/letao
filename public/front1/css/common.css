@@ -14,7 +14,7 @@ html, body {
   height: 100%;
   min-width: 320px;
   max-width: 640px;
-  background: pink;
+  background: #fff;
   margin: 0 auto;
   position: relative;
   padding-top: 45px;
