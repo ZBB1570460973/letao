@@ -65,6 +65,10 @@
           
         </tbody>
       </table> 
+      <!-- 渲染分页 -->
+      <div class="text-right">
+        <ul id="pagintor"></ul>
+      </div>
     </div>
   </div>
 
@@ -87,12 +91,35 @@
       </div>
     </div>
 
+    <!--添加分类 模态框 -->
+      <div class="modal fade" tabindex="-1" id="addModal">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <form id="form">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                  <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <input type="text" name="categoryName"  class="form-control" placeholder="请输入一级分类">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      
    <!-- 表格的渲染 -->
    <script type="text/html" id="tableTmp">
     {{ each rows v i }}
     <tr>  			
       <td> {{ i + 1 + (page -1 ) * size }} </td>
-      <td></td>
+      <td> {{ v.categoryName }} </td>
     </tr>
     {{ /each }}
   </script>
