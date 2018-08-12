@@ -66,7 +66,7 @@ $(function () {
     dataType:"json",
     //e：事件对象
     //data：图片上传后的对象，通过data.result.picAddr可以获取上传后的图片地址
-    done:function (e, data) {
+    done: function (e, data) {
       console.log(data);
       picArr.unshift(data.result);
       var imgUrl = data.result.picAddr;
@@ -83,108 +83,100 @@ $(function () {
   });
   //5. 表单校验
   $('#form').bootstrapValidator({
-  excluded: [],
+    excluded: [],
 
-  //2. 指定校验时的图标显示，默认是bootstrap风格
-  feedbackIcons: {
-    valid: 'glyphicon glyphicon-ok',
-    invalid: 'glyphicon glyphicon-remove',
-    validating: 'glyphicon glyphicon-refresh'
-  },
-  // 校验字段
-    fields: {
-      brandId: {
-        validators: {
-          notEmpty: {
-            message: "二级分类名不能为空"
+    //2. 指定校验时的图标显示，默认是bootstrap风格
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    // 校验字段
+      fields: {
+        brandId: {
+          validators: {
+            notEmpty: {
+              message: "二级分类名不能为空"
+            }
           }
-        }
-      },
-      proName: {
-        validators: {
-          notEmpty: {
-            message: "商品名称不能为空"
+        },
+        proName: {
+          validators: {
+            notEmpty: {
+              message: "商品名称不能为空"
+            }
           }
-        }
-      },
-      proDesc: {
-        validators: {
-          notEmpty: {
-            message: "商品描述不能为空"
+        },
+        proDesc: {
+          validators: {
+            notEmpty: {
+              message: "商品描述不能为空"
+            }
           }
-        }
-      },
-      num: {
-        validators: {
-          notEmpty: {
-            message: "商品库存不能为空"
-          },
-          regexp: {
-            regexp: /^[1-9]\d*$/,
-            message: '库存必须是非零数字'
+        },
+        num: {
+          validators: {
+            notEmpty: {
+              message: "商品库存不能为空"
+            },
+            regexp: {
+              regexp: /^[1-9]\d*$/,
+              message: '库存必须是非零数字'
+            }
           }
-        }
-      },
-      size: {
-        validators: {
-          notEmpty: {
-            message: "商品尺码不能为空"
-          },
-          regexp: {
-            regexp: /^\d{2}-\d{2}$/,
-            message: '尺码必须是xx-xx格式'
+        },
+        size: {
+          validators: {
+            notEmpty: {
+              message: "商品尺码不能为空"
+            },
+            regexp: {
+              regexp: /^\d{2}-\d{2}$/,
+              message: '尺码必须是xx-xx格式'
+            }
           }
-        }
-      },
-      oldPrice: {
-        validators: {
-          notEmpty: {
-            message: "商品原价不能为空"
+        },
+        oldPrice: {
+          validators: {
+            notEmpty: {
+              message: "商品原价不能为空"
+            }
           }
-        }
-      },
-      price: {
-        validators: {
-          notEmpty: {
-            message: "商品现价不能为空"
+        },
+        price: {
+          validators: {
+            notEmpty: {
+              message: "商品现价不能为空"
+            }
           }
-        }
-      },
-      picStatus: {
-        validators: {
-          notEmpty: {
-            message: "请选择图片"
+        },
+        picStatus: {
+          validators: {
+            notEmpty: {
+              message: "请选择图片"
+            }
           }
-        }
-      },
-    }
-
+        },
+      }
+  
   })
   // 6.表单校验成功事件
   $('#form').on('success.form.bv', function (e) {
     e.preventDefault();
-      var formStr = $('#form').serialize();
+    var formStr = $('#form').serialize();
     formStr += "&picAddr1=" + picArr[0].picAddr + "&picName1=" + picArr[0].picName;
     formStr += "&picAddr2=" + picArr[1].picAddr + "&picName2=" + picArr[1].picName;
     formStr += "&picAddr3=" + picArr[2].picAddr + "&picName3=" + picArr[2].picName;
-    console.log(formStr);
-    
     $.ajax({
       type: "post",
       url: "/product/addProduct",
       data: formStr,
       dataType: "json",
       success: function (info) {
+        console.log(1);  
         console.log(info);
-        if (info.success) {
-          $('#addModal').modal('hide');
-          currentPage = 1;
-          render();
-          $('#form').data('bootstrapValidator').resetForm(ture);
-          $('#dropdownText').text('请选择二级分类名');
-          $('#imgBox img').remove();
-          picArr = [];
-        }
+        // 关闭模态框
+
       }
     })
   })
