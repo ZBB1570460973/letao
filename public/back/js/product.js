@@ -173,10 +173,18 @@ $(function () {
       data: formStr,
       dataType: "json",
       success: function (info) {
-        console.log(1);  
+        // console.log(1);  
         console.log(info);
         // 关闭模态框
-
+        $('#addModal').modal('hide');
+        currentPage = 1;
+        render();
+        // 表单重置
+        $('#form').data('bootstrapValidator').resetForm(true)
+        // 手动重置二级菜单
+        $('#dropdownText').text('请输入二级分类');
+        $('#imgBox img').remove();
+        picArr = [];
       }
     })
   })
